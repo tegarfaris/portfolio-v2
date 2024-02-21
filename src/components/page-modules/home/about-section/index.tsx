@@ -50,8 +50,8 @@ const AboutSection: React.FC = () => {
           textAlign="justify"
           gap="10px"
           w={{ base: "full", md: "lg" }}
+          p={{ base: 7, md: 10 }}
           className="about"
-          p={{ base: 0, md: 10 }}
         >
           <Text>
             With over 1.5 years of dedicated experience in Frontend Development,

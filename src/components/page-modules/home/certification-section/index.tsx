@@ -113,7 +113,7 @@ const CertificationSection: React.FC = () => {
       minH="100vh"
       justifyContent="center"
       borderRadius="20px"
-      pt="100px"
+      pt="50px"
       maxW="1024px"
       mx="auto"
     >

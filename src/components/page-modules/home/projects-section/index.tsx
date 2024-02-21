@@ -153,7 +153,9 @@ const ProjectsSection: React.FC = () => {
                         </Badge>
                       ))}
                     </Flex>
-                    <Text>{project.description}</Text>
+                    <Text h="150px" mt="10px">
+                      {project.description}
+                    </Text>
 
                     <Flex
                       flexDir={{ base: "column", md: "row" }}
