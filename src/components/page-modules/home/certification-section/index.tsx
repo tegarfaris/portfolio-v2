@@ -32,16 +32,6 @@ const CertificationSection: React.FC = () => {
   const EDUCATION_CERTIFICATION = [
     {
       id: 1,
-      name: "Ijazah D3 Teknik Informatika",
-      publisher: "POLITEKNIK NEGERI BANDUNG",
-      description:
-        "Graduation diploma of Diploma-3 in Informatics Engineering from Bandung State Polytechnic with a GPA of 3.09.",
-      expireDate: "",
-      alt: "ijazah",
-      imageUrl: CERTIFICATE.IJAZAH,
-    },
-    {
-      id: 2,
       name: "Belajar Dasar Pemrograman Web",
       publisher: "Dicoding Indonesia",
       expiredDate: "11 Mei 2026",
@@ -51,7 +41,7 @@ const CertificationSection: React.FC = () => {
       alt: "dicoding-certification",
     },
     {
-      id: 3,
+      id: 2,
       name: "Belajar Membuat Aplikasi Web dengan React",
       publisher: "Dicoding Indonesia",
       expiredDate: "21 Juli 2026",

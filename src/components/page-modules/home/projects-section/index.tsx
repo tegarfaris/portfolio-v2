@@ -1,7 +1,10 @@
 import React from "react";
 import { Badge, Button, Flex, Image, Text, Tooltip } from "@chakra-ui/react";
 import HeadingTittle from "../../../HeadingTittle";
-import { PROJECTS_ASSETS } from "../../../../helper/image.cld";
+import {
+  PROJECTS_ASSETS,
+  WORK_EXPERIENCE_ASSETS,
+} from "../../../../helper/image.cld";
 import { IoOpenOutline } from "react-icons/io5";
 import { FaGithub } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -14,6 +17,16 @@ const ProjectsSection: React.FC = () => {
   const PROJECTS = [
     {
       id: 0,
+      title: "WOOL",
+      image: WORK_EXPERIENCE_ASSETS.WOOL,
+      liveSite: "https://app.wool.id/",
+      github: "private",
+      description:
+        "This website is one of the three websites that I handle at my current company, where I have been entrusted as a Frontend Developer.",
+      tech: ["Next JS", "Chakra UI", "Redux Toolkit"],
+    },
+    {
+      id: 1,
       title: "Landing Page for WO",
       image: PROJECTS_ASSETS.WO,
       liveSite: "",
@@ -23,7 +36,7 @@ const ProjectsSection: React.FC = () => {
       tech: ["HTML", "CSS", "Javascript"],
     },
     {
-      id: 1,
+      id: 2,
       title: "Survey Web",
       image: PROJECTS_ASSETS.NOT_FOUND,
       liveSite: "",
@@ -33,7 +46,7 @@ const ProjectsSection: React.FC = () => {
       tech: ["Vue 3", "Tailwind CSS"],
     },
     {
-      id: 2,
+      id: 3,
       title: "Tokopedia Clone (Product List)",
       image: PROJECTS_ASSETS.NOT_FOUND,
       liveSite: "",
@@ -43,7 +56,7 @@ const ProjectsSection: React.FC = () => {
       tech: ["React JS", "Tailwind CSS"],
     },
     {
-      id: 3,
+      id: 4,
       title: "Contact List",
       image: PROJECTS_ASSETS.PHONE_BOOK,
       liveSite: "",
@@ -53,7 +66,7 @@ const ProjectsSection: React.FC = () => {
       tech: ["React JS", "Typescript", "Chakra UI", "GraphQL", "Apollo Client"],
     },
     {
-      id: 4,
+      id: 5,
       title: "Web News",
       image: PROJECTS_ASSETS.NEWS_APP,
       liveSite: "",
@@ -63,7 +76,7 @@ const ProjectsSection: React.FC = () => {
       tech: ["Vite", "React JS", "Typescript", "Antd Design"],
     },
     {
-      id: 5,
+      id: 6,
       title: "ToDo List",
       image: PROJECTS_ASSETS.TODOS,
       liveSite: "https://to-do-apps-mu.vercel.app/",
@@ -73,7 +86,7 @@ const ProjectsSection: React.FC = () => {
       tech: ["React JS", "Typescript", "Chakra UI", "Redux Toolkit"],
     },
     {
-      id: 6,
+      id: 7,
       title: "Food Apps",
       image: PROJECTS_ASSETS.FOOD_APPS,
       liveSite: "",
@@ -83,7 +96,7 @@ const ProjectsSection: React.FC = () => {
       tech: ["Vite", "React JS", "Tailwind CSS"],
     },
     {
-      id: 7,
+      id: 8,
       title: "CV Generator",
       image: PROJECTS_ASSETS.CV_GENERATOR,
       liveSite:
@@ -94,6 +107,18 @@ const ProjectsSection: React.FC = () => {
       tech: ["Next JS", "Typescript", "Chakra UI"],
     },
   ];
+
+  const handleLiveSite = (linkLiveSite: string) => {
+    if (linkLiveSite !== "") {
+      window.open(linkLiveSite, "_blank");
+    }
+  };
+
+  const handleGithub = (linkGithub: string) => {
+    if (linkGithub !== "private") {
+      window.open(linkGithub, "_blank");
+    }
+  };
   return (
     <Flex
       id="projects-section"
@@ -173,27 +198,28 @@ const ProjectsSection: React.FC = () => {
                           border="1px solid blue"
                           leftIcon={<IoOpenOutline />}
                           isDisabled={project.liveSite === ""}
-                          disabled
                           target={project.liveSite !== "" ? "_blank" : "_self"}
-                          href={
-                            project.liveSite !== ""
-                              ? project.liveSite
-                              : "#projects-section"
-                          }
+                          onClick={() => handleLiveSite(project.liveSite)}
                         >
                           Live Site
                         </Button>
                       </Tooltip>
-                      <Button
-                        as="a"
-                        bg="linear-gradient(162deg, rgba(43,0,95,1) 0%, rgba(137,52,255,1) 100%, rgba(0,0,0,1) 100%)"
-                        leftIcon={<FaGithub />}
-                        color="white"
-                        target="_blank"
-                        href={project.github}
+                      <Tooltip
+                        display={project.github === "private" ? "flex" : "none"}
+                        label="Private"
                       >
-                        Github
-                      </Button>
+                        <Button
+                          as="a"
+                          bg="linear-gradient(162deg, rgba(43,0,95,1) 0%, rgba(137,52,255,1) 100%, rgba(0,0,0,1) 100%)"
+                          leftIcon={<FaGithub />}
+                          color="white"
+                          target="_blank"
+                          isDisabled={project.github === "private"}
+                          onClick={() => handleGithub(project.github)}
+                        >
+                          Github
+                        </Button>
+                      </Tooltip>
                     </Flex>
                   </Flex>
                 </Flex>

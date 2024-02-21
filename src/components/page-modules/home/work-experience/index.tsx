@@ -54,6 +54,10 @@ const WorkExperienceSection: React.FC = () => {
               JS, TypeScript, Chakra UI/Tailwind)
             </li>
             <li>
+              I have contributed to 4 website projects, which include a landing
+              page for both B2C and B2B, as well as 2 web applications.
+            </li>
+            <li>
               Integration with Rest API and using Redux Toolkit for state
               management and optimize perfomance web
             </li>
@@ -72,7 +76,14 @@ const WorkExperienceSection: React.FC = () => {
           </ul>
         </Flex>
       ),
-      tech: ["Next JS", "Typescript", "Chakra UI", "Redux Toolkit", "Scrum"],
+      tech: [
+        "Next JS",
+        "Typescript",
+        "Chakra UI",
+        "Tailwind",
+        "Redux Toolkit",
+        "Scrum",
+      ],
     },
   ];
   return (
