@@ -19,15 +19,18 @@ import { CERTIFICATE } from "../../../../helper/image.cld";
 const CertificationSection: React.FC = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const [selectedImage, setSelectedImage] = React.useState("");
+  const [selectedTitle, setSelectedTitle] = React.useState("");
 
-  const handleOpenModal = (imageUrl: string) => {
+  const handleOpenModal = (imageUrl: string, title: string) => {
     setSelectedImage(imageUrl);
+    setSelectedTitle(title);
     setIsOpen(true);
   };
 
   const handleCloseModal = () => {
     setIsOpen(false);
     setSelectedImage("");
+    setSelectedTitle("");
   };
   const EDUCATION_CERTIFICATION = [
     {
@@ -145,21 +148,34 @@ const CertificationSection: React.FC = () => {
                 />
 
                 <Flex flexDir="column" gap="10px">
-                  <Text fontSize="24px" fontWeight={600} h="120px">
+                  <Text
+                    fontSize="24px"
+                    fontWeight={600}
+                    noOfLines={2}
+                    maxW="230px"
+                  >
                     {certification.name}
                   </Text>
                   <Text>{certification.description}</Text>
-                  <Text>{certification.expiredDate}</Text>
+                  <Text fontSize="14px" mt="10px">
+                    Expired: {certification.expiredDate}
+                  </Text>
                   <Flex pt="20px">
                     <Button
-                      variant="outline"
-                      borderColor="#8934FF"
-                      color="#8934FF"
+                      alignItems="center"
+                      gap="10px"
+                      variant="solid"
+                      bg="linear-gradient(162deg, rgba(43,0,95,1) 0%, rgba(137,52,255,1) 100%, rgba(0,0,0,1) 100%)"
+                      color="white"
                       onClick={() =>
-                        handleOpenModal(certification.imageUrl || "")
+                        handleOpenModal(
+                          certification.imageUrl || "",
+                          certification.name || ""
+                        )
                       }
                     >
                       <FiEye />
+                      View
                     </Button>
                   </Flex>
                 </Flex>
@@ -168,19 +184,7 @@ const CertificationSection: React.FC = () => {
           ))}
         </Grid>
       </Flex>
-      <Modal isOpen={isOpen} size="xl" onClose={handleCloseModal}>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalCloseButton />
-          <ModalBody p={10}>
-            <Flex justifyContent="center" alignItems="center">
-              {selectedImage && (
-                <Image src={selectedImage} alt="Certification" />
-              )}
-            </Flex>
-          </ModalBody>
-        </ModalContent>
-      </Modal>
+
       <Flex flexDir="column" gap="20px" px={{ base: "20px", lg: "0" }}>
         <Text color="white" fontSize="20px" fontWeight={600} placeSelf="end">
           Organization Certificate
@@ -224,14 +228,20 @@ const CertificationSection: React.FC = () => {
 
                   <Flex pt="20px">
                     <Button
-                      variant="outline"
-                      borderColor="#8934FF"
-                      color="#8934FF"
+                      variant="solid"
+                      bg="linear-gradient(162deg, rgba(43,0,95,1) 0%, rgba(137,52,255,1) 100%, rgba(0,0,0,1) 100%)"
+                      color="white"
+                      alignItems="center"
+                      gap="10px"
                       onClick={() =>
-                        handleOpenModal(organization.imageUrl || "")
+                        handleOpenModal(
+                          organization.imageUrl || "",
+                          organization.name || ""
+                        )
                       }
                     >
                       <FiEye />
+                      View
                     </Button>
                   </Flex>
                 </Flex>
@@ -239,6 +249,26 @@ const CertificationSection: React.FC = () => {
             </GridItem>
           ))}
         </Grid>
+
+        {/* modal view */}
+        <Modal isOpen={isOpen} size="xl" onClose={handleCloseModal}>
+          <ModalOverlay />
+          <ModalContent mt="10%">
+            <ModalCloseButton />
+            <ModalBody p={5} mt={8}>
+              <Flex justifyContent="center" alignItems="center">
+                {selectedImage && (
+                  <Flex flexDir="column-reverse" gap="20px">
+                    <Text fontSize="20px" textAlign="center" fontWeight="600">
+                      {selectedTitle}
+                    </Text>
+                    <Image src={selectedImage} alt="Certification" />
+                  </Flex>
+                )}
+              </Flex>
+            </ModalBody>
+          </ModalContent>
+        </Modal>
       </Flex>
     </Flex>
   );
