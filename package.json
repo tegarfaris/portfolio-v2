@@ -1,5 +1,6 @@
 {
-  "name": "portfolio",
+  "name": "portfolio-v2",
+  "author": "Tegar Faris Nurhakim",
   "private": true,
   "version": "0.0.0",
   "type": "module",
