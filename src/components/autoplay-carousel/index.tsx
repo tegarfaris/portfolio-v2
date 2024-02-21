@@ -33,7 +33,7 @@ const AutoplayCarousel: React.FC<AutoplayCarouselProps> = ({
     >
       <Flex
         w={`calc(${slideWidth ?? "250px"} * ${childCount * 2})`}
-        animation={`scroll-animate-${direction} 20s linear infinite`}
+        animation={`scroll-animate-${direction} 15s linear infinite`}
         _hover={{
           animationPlayState: "paused",
         }}

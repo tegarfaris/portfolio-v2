@@ -48,11 +48,10 @@ const TechSection: React.FC = () => {
       <HeadingTittle title="Tech Stack" />
       <Flex
         w="full"
-        // bg="white"
-        borderRadius="20px"
+        bg="white"
         alignItems="center"
         justifyContent="center"
-        pt={20}
+        py={5}
       >
         <AutoplayCarousel
           height="fit-content"

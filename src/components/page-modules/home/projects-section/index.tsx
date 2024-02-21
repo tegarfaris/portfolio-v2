@@ -5,9 +5,10 @@ import { PROJECTS_ASSETS } from "../../../../helper/image.cld";
 import { IoOpenOutline } from "react-icons/io5";
 import { FaGithub } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCoverflow, Pagination } from "swiper/modules";
+import { Keyboard, Pagination } from "swiper/modules";
 import "swiper/css";
-import "swiper/css/effect-coverflow";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 const ProjectsSection: React.FC = () => {
   const PROJECTS = [
@@ -110,17 +111,13 @@ const ProjectsSection: React.FC = () => {
           slidesPerView="auto"
           effect="coverflow"
           loop
-          coverflowEffect={{
-            rotate: 50,
-            stretch: 0,
-            depth: 100,
-            modifier: 1,
-            slideShadows: true,
-          }}
-          modules={[EffectCoverflow, Pagination]}
           pagination={{ clickable: true }}
+          modules={[Pagination, Keyboard]}
+          keyboard={{
+            enabled: true,
+          }}
         >
-          <Flex className="swiper-wrapper" w="800px" justifyContent="center">
+          <Flex w="800px" gap="20px" justifyContent="center">
             {PROJECTS.map((project) => (
               <SwiperSlide key={project.id}>
                 <Flex
@@ -133,7 +130,11 @@ const ProjectsSection: React.FC = () => {
                   w="full"
                   h="full"
                 >
-                  <Image src={project.image} w="500px" />
+                  <Image
+                    src={project.image}
+                    w="500px"
+                    mt={{ base: "-100px", md: "-150px" }}
+                  />
 
                   <Flex flexDir="column" gap="10px" w="full">
                     <Text fontWeight={600} fontSize="30px">
