@@ -54,23 +54,13 @@ const AboutSection: React.FC = () => {
           className="about"
         >
           <Text>
-            With over 1.5 years of dedicated experience in Frontend Development,
-            I've honed my skills in JavaScript, specializing in React.js and
-            Next.js. My proficiency extends to crafting dynamic chart and
-            responsive websites, employing frameworks and libraries such as
-            Tailwind CSS, Material UI, and Chakra UI.
-          </Text>
-          <Text>
-            I am well-versed in leveraging React features like Hooks, Context,
-            and Redux Toolkit to create seamless and interactive user
-            experiences. My previous work includes contributing to various web
-            projects, starting from B2B, B2C Product. showcasing adaptability in
-            diverse technologies and frameworks.
-          </Text>
-          <Text>
-            Excited to bring my passion for frontend excellence to new
-            challenges and contribute to the ever-evolving landscape of web
-            development!
+            With over 2 years of experience in Frontend Development, I
+            specialize in JavaScript, particularly React.js and Next.js. I have
+            contributed to diverse web projects, including Management, B2B, and
+            B2C products. My adaptability and quick learning enable me to excel
+            with various technologies and frameworks. I am eager to bring my
+            passion for frontend excellence to new challenges and the
+            ever-evolving field of web development.
           </Text>
         </Flex>
         <Box pos="relative" mb={10}>
